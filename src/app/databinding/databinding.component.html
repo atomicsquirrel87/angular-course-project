@@ -1,0 +1,51 @@
+<h4>String Interpolation</h4>
+{{ aString }}
+{{ aNumber }}
+<hr>
+<h4>Property Binding</h4>
+<p [innerText]="aString"></p> <!-- Version 1 -->
+<p innerText="{{ aString }}"></p> <!-- Version 2 -->
+<div>
+  String Interpolation 
+  <input type="text" value="{{ aNumber }}"> <!-- Version 1 -->
+</div>
+<br/>
+<div>
+  Property Binding 
+  <input type="text" [value]="aNumber" > <!-- Version 2 -->
+</div>
+<br/>
+<div [ngClass]="'blue-border'"> <!-- Version 1 -->
+  Text mit [ngClass] Styling
+</div>
+<br/>
+<div [ngClass]="['blue-border', 'red-font']"> <!-- Version 2 -->
+  Text mit [ngClass] Styling
+</div>
+<br/>
+<div [ngClass]="{'red-border': attachClass}"> <!-- Version 3 -->
+  Text mit [ngClass] Styling
+</div>
+<br/>
+<div [ngClass]="{'blue-border red-font': aBoolean}"> <!-- Version 4 -->
+  Text mit [ngClass] Styling
+</div>
+<br/>
+
+<div [ngStyle]="{'background-color': 'blue', 'color' : 'white'}">
+  Text mit [ngStyle] Styling
+</div>
+<app-property-binding [name]="'Domi'"></app-property-binding>
+<hr>
+<h4>Event Binding</h4>
+<button (click)="attachClass = false">Click me!</button>
+<br/>
+<button (click)="onclick($event)">Click me!</button>
+<app-event-binding (clicked)="aString = $event"></app-event-binding>
+<hr>
+<h4>Two-way-binding</h4>
+<!--
+  <input type="text" [value]="aString" (keyup)="aString = input.value" #input> 
+  <br/>
+-->
+<input type="text" [(ngModel)]="aString" >
